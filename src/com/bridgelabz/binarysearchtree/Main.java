@@ -19,6 +19,13 @@ public class Main {
         binaryTree.add(67);
         System.out.println("Height of tree : " + binaryTree.getHeightOfTree());
 
+        INode<Integer> node = binaryTree.search(63);
+        if(node != null){
+            System.out.println("returned node from search is : " + node);
+        }else{
+            System.out.println("Node not found");
+        }
+
         binaryTree.inorder();
 
         System.out.println(binaryTree);
