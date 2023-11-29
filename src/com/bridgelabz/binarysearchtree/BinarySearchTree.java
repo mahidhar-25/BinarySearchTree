@@ -125,6 +125,8 @@ public class BinarySearchTree<T extends Comparable<T>>  {
  */
     public void inorder() {
         inorder(root);
+        System.out.println();
+        System.out.println();
     }
     /*
         @desc :  This method traverses the linked list and prints each element.
@@ -216,6 +218,39 @@ public class BinarySearchTree<T extends Comparable<T>>  {
         return search(root, val);
     }
 
-    /* computes number of nodes in tree */
+    /*
+   @desc : Compute the "maxDepth" of a tree -- the number of
+          nodes along the longest path from the root node
+          down to the farthest leaf node.
+    @param : INode
+    @return int - height
+      */
+    public int getHeightOfTree(){
+        return maxDepth(root);
+    }
+
+    /*
+    @desc : Compute the "maxDepth" of a tree -- the number of
+           nodes along the longest path from the root node
+           down to the farthest leaf node.
+     @param : INode
+     @return int - height
+       */
+    int maxDepth(INode<T> node)
+    {
+        if (node == null)
+            return 0;
+        else {
+            /* compute the depth of each subtree */
+            int lDepth = maxDepth(node.left);
+            int rDepth = maxDepth(node.right);
+
+            /* use the larger one */
+            if (lDepth > rDepth)
+                return (lDepth + 1);
+            else
+                return (rDepth + 1);
+        }
+    }
 
 }
